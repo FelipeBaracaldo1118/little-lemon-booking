@@ -1,111 +1,608 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
-body {
-  margin: 0;
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
+.little-lemon-app,
+.little-lemon-app * {
   box-sizing: border-box;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+.little-lemon-app button,
+.little-lemon-app input,
+.little-lemon-app textarea {
+  font: inherit;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+.little-lemon-app button {
+  cursor: pointer;
+  border: none;
 }
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
+
+.little-lemon-app img {
+  display: block;
+  max-width: 100%;
 }
-p {
+
+.little-lemon-app {
+  min-height: 100vh;
+  background: #d9d9d9;
+  padding: 40px 16px;
+  font-family: Arial, sans-serif;
+}
+
+.little-lemon-app .layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.little-lemon-app .phone-frame {
+  position: relative;
+  width: 390px;
+  border: 10px solid #a8adb8;
+  border-radius: 38px;
+  background: #f7f7f2;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+}
+
+.little-lemon-app .phone-side-button {
+  position: absolute;
+  left: -12px;
+  top: 240px;
+  width: 6px;
+  height: 56px;
+  background: #6e7480;
+  border-radius: 999px;
+}
+
+.little-lemon-app .phone-screen {
+  overflow: hidden;
+  border-radius: 28px;
+  background: #f7f7f2;
+}
+
+.little-lemon-app .topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f7f7f2;
+  padding: 16px 20px;
+}
+
+.little-lemon-app .icon-button {
+  background: transparent;
+  color: #0c5a4a;
+}
+
+.little-lemon-app .brand-name {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 600;
+  color: #0b5a4a;
+}
+
+.little-lemon-app .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 2px solid #dce0db;
+  background: #25303a;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.little-lemon-app .home-screen {
+  min-height: 780px;
+  background: #495e57;
+  padding-bottom: 110px;
+}
+
+.little-lemon-app .hero-pattern {
+  padding: 40px 24px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.little-lemon-app .hero-title {
   margin: 0;
+  font-family: Georgia, serif;
+  font-size: 54px;
+  line-height: 0.95;
+  font-weight: 700;
+  color: #f4ce14;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+.little-lemon-app .hero-city {
+  margin: 16px 0 0;
+  font-family: Georgia, serif;
+  font-size: 34px;
+  font-style: italic;
+  color: #dce3da;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.little-lemon-app .hero-description {
+  margin-top: 32px;
+  max-width: 290px;
+  font-size: 14px;
+  line-height: 2;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.little-lemon-app .reserve-btn {
+  margin-top: 40px;
+  background: #f4ce14;
+  color: #665c00;
+  padding: 20px 40px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.14);
+}
+
+.little-lemon-app .hero-image-wrapper {
+  margin-top: 48px;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 24px 30px rgba(0, 0, 0, 0.24);
+}
+
+.little-lemon-app .hero-image {
+  width: 100%;
+  height: 370px;
+  object-fit: cover;
+}
+
+.little-lemon-app .booking-screen {
+  min-height: 780px;
+  background: #f7f7f2;
+  padding-bottom: 110px;
+}
+
+.little-lemon-app .booking-banner-wrap {
+  padding: 16px 20px 0;
+}
+
+.little-lemon-app .booking-banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.little-lemon-app .booking-banner-img {
+  width: 100%;
+  height: 128px;
+  object-fit: cover;
+}
+
+.little-lemon-app .booking-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 52, 47, 0.4);
+}
+
+.little-lemon-app .booking-banner-content {
+  position: absolute;
+  inset: 0;
+  padding: 20px;
+  color: white;
+}
+
+.little-lemon-app .booking-banner-content h2 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 18px;
+}
+
+.little-lemon-app .booking-banner-content p {
+  margin: 8px 0 0;
+  max-width: 190px;
+  font-size: 11px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.little-lemon-app .booking-content {
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.little-lemon-app .section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.little-lemon-app .section-header h3,
+.little-lemon-app .section-title,
+.little-lemon-app .summary-card h3 {
+  margin: 0 0 16px;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  color: #364540;
+}
+
+.little-lemon-app .month-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #5c605f;
+  font-size: 12px;
+}
+
+.little-lemon-app .calendar-card {
+  background: white;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.little-lemon-app .calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  text-align: center;
+  font-size: 10px;
+  color: #a0a3a0;
+}
+
+.little-lemon-app .calendar-dates {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 20px 8px;
+  text-align: center;
+}
+
+.little-lemon-app .date-btn {
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+  border-radius: 9px;
+  background: transparent;
+  color: #333;
+}
+
+.little-lemon-app .date-btn-active {
+  background: #495e57;
+  color: white;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.14);
+}
+
+.little-lemon-app .date-btn-muted {
+  color: #c6c7c7;
+}
+
+.little-lemon-app .time-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.little-lemon-app .time-btn {
+  min-width: 72px;
+  border: 1px solid #e5e5df;
+  background: white;
+  color: #5e605f;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 12px;
+}
+
+.little-lemon-app .time-btn-active {
+  background: #f4ce14;
+  border-color: #f4ce14;
+  color: #5b5400;
+}
+
+.little-lemon-app .guest-stepper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.little-lemon-app .stepper-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: white;
+  color: #767b79;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.little-lemon-app .guest-count {
+  min-width: 24px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #364540;
+}
+
+.little-lemon-app .occasion-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.little-lemon-app .occasion-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid #e7e7e0;
+  background: white;
+  color: #5f6361;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 12px;
+}
+
+.little-lemon-app .occasion-btn-active {
+  border-color: #495e57;
+  background: #eef2ef;
+  color: #364540;
+}
+
+.little-lemon-app .guest-details-title {
+  margin: 0 0 16px;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  color: #364540;
+}
+
+.little-lemon-app .details-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.little-lemon-app .form-input,
+.little-lemon-app .form-textarea {
+  width: 100%;
+  border: 1px solid #e5e5df;
+  background: white;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: #364540;
+  outline: none;
+}
+
+.little-lemon-app .form-textarea {
+  resize: none;
+}
+
+.little-lemon-app .form-input:focus,
+.little-lemon-app .form-textarea:focus {
+  border-color: #495e57;
+}
+
+.little-lemon-app .form-error {
+  font-size: 12px;
+  color: #b42318;
+}
+
+.little-lemon-app .summary-card {
+  background: #2f4a42;
+  color: white;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.18);
+}
+
+.little-lemon-app .summary-card h3 {
+  color: white;
+  margin-bottom: 0;
+}
+
+.little-lemon-app .summary-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  margin-top: 12px;
+}
+
+.little-lemon-app .summary-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.little-lemon-app .summary-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.little-lemon-app .summary-icon {
+  margin-top: 2px;
+  color: #f4ce14;
+}
+
+.little-lemon-app .summary-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.little-lemon-app .summary-value {
+  margin-top: 4px;
+  font-size: 13px;
+  color: white;
+}
+
+.little-lemon-app .check-btn {
+  width: 100%;
+  margin-top: 28px;
+  border-radius: 999px;
+  background: #f4ce14;
+  color: #665c00;
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.little-lemon-app .summary-note {
+  margin-top: 16px;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.little-lemon-app .summary-image-wrap {
+  margin-top: 24px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.little-lemon-app .summary-image {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+}
+
+.little-lemon-app .summary-image-label {
+  margin-top: -26px;
+  padding: 0 12px 12px;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.little-lemon-app .confirmation-screen {
+  min-height: 780px;
+  background: #f7f7f2;
+  padding-bottom: 110px;
+}
+
+.little-lemon-app .confirmation-content {
+  padding: 32px 20px;
+}
+
+.little-lemon-app .confirmation-card {
+  border-radius: 24px;
+  background: white;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.little-lemon-app .confirmation-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto;
+  border-radius: 999px;
+  background: #eef6ef;
+  color: #2f7a49;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.little-lemon-app .confirmation-title {
+  margin: 20px 0 0;
+  font-family: Georgia, serif;
+  font-size: 28px;
+  color: #364540;
+}
+
+.little-lemon-app .confirmation-text {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #5f6361;
+}
+
+.little-lemon-app .confirmation-summary {
+  margin-top: 24px;
+  border-radius: 18px;
+  background: #2f4a42;
+  padding: 20px;
+  text-align: left;
+  color: white;
+}
+
+.little-lemon-app .booking-code-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.little-lemon-app .booking-code {
+  margin-top: 4px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.little-lemon-app .confirmation-summary-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.little-lemon-app .book-another-btn {
+  width: 100%;
+  margin-top: 24px;
+  border-radius: 999px;
+  background: #f4ce14;
+  color: #665c00;
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.little-lemon-app .bottom-nav-wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #f8f8f4;
+  padding: 16px 20px;
+}
+
+.little-lemon-app .bottom-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f8f4;
+}
+
+.little-lemon-app .nav-btn {
+  min-width: 68px;
+  padding: 12px;
+  border-radius: 999px;
+  background: transparent;
+  color: #8aa99d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.little-lemon-app .nav-btn-active {
+  background: #f4ce14;
+  color: #23312d;
+}
+
+@media (max-width: 480px) {
+  .little-lemon-app .phone-frame {
+    width: 100%;
+    max-width: 390px;
+  }
+
+  .little-lemon-app {
+    padding: 20px 10px;
+  }
 }
